@@ -37,7 +37,7 @@ Actualmente este proyecto no está terminado y posiblemente presente anomalias e
 
 
 ## Imagenes del proyecto
-![Codizer Core Social Network](http://codizer.com/git-hub-img/codizer-core-01.png)
+![Pantalla principal](https://github.com/adrianortiz/spring-data-sorting-paging/blob/main/src/main/resources/screenshot-01.png)
 
 
 ## Spring Framework
