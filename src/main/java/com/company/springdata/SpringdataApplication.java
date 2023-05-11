@@ -23,7 +23,7 @@ public class SpringdataApplication {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/biblioteca");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/springdatasortingpaging");
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
 		return dataSource;

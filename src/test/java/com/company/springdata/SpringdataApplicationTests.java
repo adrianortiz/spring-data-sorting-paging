@@ -19,11 +19,16 @@ import static org.hamcrest.Matchers.greaterThan;
 @Sql({"/squema.sql", "/data.sql"})
 class SpringdataApplicationTests {
 
-
+	@Autowired
+	LibroRepository repositorioLibro;
 
 	@Test
-	void test() {
+	void buscarTodosTest() {
+		Iterable<Libro> it = repositorioLibro.findAll();
+		List<Libro> miLista = new ArrayList<Libro>();
+		it.forEach(miLista::add);
 
+		assertThat(miLista.size(), greaterThan(6));
 	}
 
 }
