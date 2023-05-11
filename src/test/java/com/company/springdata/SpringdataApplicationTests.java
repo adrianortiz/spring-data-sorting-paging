@@ -26,6 +26,7 @@ class SpringdataApplicationTests {
 	void buscarTodosTest() {
 		Iterable<Libro> it = repositorioLibro.findAll();
 		List<Libro> miLista = new ArrayList<Libro>();
+		it.forEach(System.out::println);
 		it.forEach(miLista::add);
 
 		assertThat(miLista.size(), greaterThan(6));
