@@ -12,8 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
@@ -76,6 +75,18 @@ class SpringdataApplicationTests {
 		assertThat(miLista.get(1).getTitulo(), equalTo("Net"));
 	}
 
+	@Test
+	void buscarPorTitulo() {
+		List<Libro> lista = repositorioLibro.findByTitulo("PHP");
+		assertThat(lista, hasItem(new Libro("3B")));
+	}
 
+	@Test
+	void buscarPorAutor() {
+		List<Libro> lista = repositorioLibro.findByAutor("Cecilio");
+		assertThat(lista, hasItem(new Libro("3B")));
+		assertThat(lista, hasItem(new Libro("1A")));
+		assertThat(lista, hasItem(new Libro("4A")));
+	}
 
 }
