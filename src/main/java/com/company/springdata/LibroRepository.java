@@ -16,4 +16,6 @@ public interface LibroRepository extends CrudRepository<Libro, String> {
     public List<Libro> findByTituloOrAutor(String titulo, String autor);
     public List<Libro> findByTituloLike(String titulo);
     public List<Libro> findByTituloContaining(String titulo);
+    public List<Libro> findByTituloStartingWith(String titulo);
+    public List<Libro> findByTituloEndingWith(String titulo);
 }
