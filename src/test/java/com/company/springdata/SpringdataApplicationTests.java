@@ -131,4 +131,18 @@ class SpringdataApplicationTests {
 		assertThat(lista, hasItem(new Libro("2A")));
 		assertThat(lista, hasItem(new Libro("5A")));
 	}
+
+	@Test
+	void buscarPorTituloLike() {
+		List<Libro> lista = repositorioLibro.findByTituloLike("%Java%");
+		assertThat(lista, hasItem(new Libro("1A")));
+		assertThat(lista, hasItem(new Libro("7B")));
+	}
+
+	@Test
+	void buscarPorTituloContaining() {
+		List<Libro> lista = repositorioLibro.findByTituloContaining("Java");
+		assertThat(lista, hasItem(new Libro("1A")));
+		assertThat(lista, hasItem(new Libro("7B")));
+	}
 }
