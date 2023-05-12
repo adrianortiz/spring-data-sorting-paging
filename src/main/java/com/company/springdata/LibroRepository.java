@@ -8,6 +8,10 @@ public interface LibroRepository extends CrudRepository<Libro, String> {
 
     public List<Libro> findByTitulo(String titulo);
     public List<Libro> findByAutor(String autor);
+    public List<Libro> findByPrecio(double precio);
+    public List<Libro> findByPrecioGreaterThan(double precio);
+    public List<Libro> findByPrecioLessThan(double precio);
+    public List<Libro> findByPrecioBetween(double precio1, double precio2);
     public List<Libro> findByTituloAndAutor(String titulo, String autor);
     public List<Libro> findByTituloOrAutor(String titulo, String autor);
 }

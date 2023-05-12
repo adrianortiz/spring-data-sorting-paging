@@ -104,4 +104,31 @@ class SpringdataApplicationTests {
 		assertThat(lista, hasItem(new Libro("4A")));
 	}
 
+	@Test
+	void buscarPorPrecio() {
+		List<Libro> lista = repositorioLibro.findByPrecio(50);
+		assertThat(lista, hasItem(new Libro("7B")));
+		assertThat(lista, hasItem(new Libro("6C")));
+	}
+
+	@Test
+	void buscarPorPrecioMayor() {
+		List<Libro> lista = repositorioLibro.findByPrecioGreaterThan(20);
+		assertThat(lista, hasItem(new Libro("7B")));
+		assertThat(lista, hasItem(new Libro("6C")));
+	}
+
+	@Test
+	void buscarPorPrecioMenor() {
+		List<Libro> lista = repositorioLibro.findByPrecioLessThan(20);
+		assertThat(lista, hasItem(new Libro("2A")));
+		assertThat(lista, hasItem(new Libro("3B")));
+	}
+
+	@Test
+	void buscarPorPrecioEntre() {
+		List<Libro> lista = repositorioLibro.findByPrecioBetween(10, 20);
+		assertThat(lista, hasItem(new Libro("2A")));
+		assertThat(lista, hasItem(new Libro("5A")));
+	}
 }
