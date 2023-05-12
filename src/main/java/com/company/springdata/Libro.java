@@ -14,15 +14,17 @@ public class Libro {
     private String titulo;
     private String autor;
     private Date fecha;
+    private Double precio;
 
     public Libro() {
     }
 
-    public Libro(String isbn, String titulo, String autor, Date fecha) {
+    public Libro(String isbn, String titulo, String autor, Date fecha, Double precio) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
         this.fecha = fecha;
+        this.precio = precio;
     }
 
     public Libro(String isbn) {
@@ -61,6 +63,14 @@ public class Libro {
         this.fecha = fecha;
     }
 
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
     @Override
     public String toString() {
         return "Libro{" +
@@ -68,6 +78,7 @@ public class Libro {
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
                 ", fecha=" + fecha +
+                ", precio=" + precio +
                 '}';
     }
 }
