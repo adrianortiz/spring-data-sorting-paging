@@ -2,6 +2,7 @@ package com.company.springdata;
 
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface LibroRepository extends CrudRepository<Libro, String> {
@@ -18,4 +19,6 @@ public interface LibroRepository extends CrudRepository<Libro, String> {
     public List<Libro> findByTituloContaining(String titulo);
     public List<Libro> findByTituloStartingWith(String titulo);
     public List<Libro> findByTituloEndingWith(String titulo);
+    public List<Libro> findByAutorIsNull();
+    public List<Libro> findByTituloNot(String titulo);
 }
