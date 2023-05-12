@@ -89,4 +89,19 @@ class SpringdataApplicationTests {
 		assertThat(lista, hasItem(new Libro("4A")));
 	}
 
+	@Test
+	void buscarPorTituloYAutor() {
+		List<Libro> lista = repositorioLibro.findByTituloAndAutor("Java", "Cecilio");
+		assertThat(lista, hasItem(new Libro("1A")));
+	}
+
+	@Test
+	void buscarPorTituloOAutor() {
+		List<Libro> lista = repositorioLibro.findByTituloOrAutor("Net", "Cecilio");
+		assertThat(lista, hasItem(new Libro("2A")));
+		assertThat(lista, hasItem(new Libro("1A")));
+		assertThat(lista, hasItem(new Libro("3B")));
+		assertThat(lista, hasItem(new Libro("4A")));
+	}
+
 }
