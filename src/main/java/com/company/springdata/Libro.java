@@ -2,8 +2,11 @@ package com.company.springdata;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +19,9 @@ public class Libro {
     private String autor;
     private Date fecha;
     private Double precio;
+
+    @OneToMany(mappedBy = "libro")
+    private List<Capitulo> capitulos = new ArrayList<Capitulo>();
 
     public Libro() {
     }
@@ -70,6 +76,14 @@ public class Libro {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public List<Capitulo> getCapitulos() {
+        return capitulos;
+    }
+
+    public void setCapitulos(List<Capitulo> capitulos) {
+        this.capitulos = capitulos;
     }
 
     @Override

@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
 @Sql({"/squema.sql", "/data.sql"})
-class SpringdataApplicationTests {
+class LibroTest {
 
 	@Autowired
 	LibroRepository repositorioLibro;
@@ -169,5 +169,16 @@ class SpringdataApplicationTests {
 	void buscarPorTituloIsNull() {
 		List<Libro> lista = repositorioLibro.findByAutorIsNull();
 		assertThat(lista, hasItem(new Libro("7B")));
+	}
+
+	@Test
+	void buscarPorTituloEnConjunto() {
+		List<String> listaTitulo = new ArrayList<String>();
+		listaTitulo.add("Java");
+		listaTitulo.add("PHP");
+
+		List<Libro> lista = repositorioLibro.findByTituloIn(listaTitulo);
+		assertThat(lista, hasItem(new Libro("1A")));
+		assertThat(lista, hasItem(new Libro("3B")));
 	}
 }
