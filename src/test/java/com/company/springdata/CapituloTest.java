@@ -26,10 +26,18 @@ class CapituloTest {
 	CapituloRepository repositorioCapitulo;
 
 	@Test
-	void buscarTodosTest() {
+	void buscarTituloTest() {
 
 		List<Capitulo> lista = repositorioCapitulo.findByTitulo("Bucles");
 		assertThat(lista, hasItem(new Capitulo("Bucles")));
+	}
+
+	@Test
+	void buscarPorLibroTituloTest() {
+		List<Capitulo> lista = repositorioCapitulo.findByLibroTitulo("Java");
+
+		assertThat(lista, hasItem(new Capitulo("Sintaxis Basica")));
+		assertThat(lista, hasItem(new Capitulo("Sentencias de control")));
 	}
 
 
