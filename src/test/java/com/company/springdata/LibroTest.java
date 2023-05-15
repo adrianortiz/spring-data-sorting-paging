@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 
-import javax.swing.text.html.Option;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.Optional;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @Sql({"/squema.sql", "/data.sql"})
@@ -226,6 +225,15 @@ class LibroTest {
 		int i = lista.indexOf(new Libro("1A"));
 		Libro libro = lista.get(i);
 		assertThat(libro.getCapitulos(),  hasItem(new Capitulo("Bucles")));
+	}
+
+	@Test
+	void buscarTodosDTO() {
+		List<LibroCapituloTituloDTO> lista = repositorioLibro.findLibroCapituloDTO();
+		assertNotNull(lista);
+
+		LibroCapituloTituloDTO miDTO = new LibroCapituloTituloDTO("Java", "Sintaxis Basica");
+		assertThat(lista, hasItem(miDTO));
 	}
 
 }
