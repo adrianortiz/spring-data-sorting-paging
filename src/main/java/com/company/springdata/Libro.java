@@ -9,6 +9,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "Libros")
 @NamedQuery(name = "Libro.findCaros", query = "select l from Libro l where l.precio > 20")
+@NamedQuery(name = "Libro.findCarosConFecha", query = "select l from Libro l where l.precio > 20 and l.fecha > :fecha")
 public class Libro {
 
     @Id

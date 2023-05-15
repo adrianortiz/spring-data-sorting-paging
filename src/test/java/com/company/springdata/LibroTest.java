@@ -6,6 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 
 import javax.swing.text.html.Option;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -185,6 +187,22 @@ class LibroTest {
 	@Test
 	void buscarPorCaros() {
 		List<Libro> lista = repositorioLibro.findCaros();
+		assertThat(lista, hasItem(new Libro("6C")));
+		assertThat(lista, hasItem(new Libro("7B")));
+	}
+
+	@Test
+	void buscarPorCarosConFecha() {
+		SimpleDateFormat f = new SimpleDateFormat("dd-MM-YYYY");
+		Date fecha = null;
+
+		try {
+			fecha = f.parse("01-01-2021");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		List<Libro> lista = repositorioLibro.findCarosConFecha(fecha);
 		assertThat(lista, hasItem(new Libro("6C")));
 		assertThat(lista, hasItem(new Libro("7B")));
 	}
