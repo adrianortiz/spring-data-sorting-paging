@@ -80,4 +80,20 @@ class OrdenacionesTest {
 		assertEquals(lista2, listaOrdenada);
 	}
 
+	@Test
+	void buscarTodosOrdenadosPorTituloyAutorParametroTyped() {
+		Sort.TypedSort<Libro> ordenar = Sort.sort(Libro.class);
+		Sort ordenFinal = ordenar.by(Libro::getTitulo).ascending().and(ordenar.by(Libro::getAutor).ascending());
+
+		Iterable<Libro> it = repositorioLibro.findAll(ordenFinal);
+		List<Libro> lista2 = new ArrayList<Libro>();
+		it.forEach(lista2::add);
+
+		List<Libro> listaOrdenada = lista2.stream()
+				.sorted(Comparator.comparing(Libro::getTitulo).thenComparing(Libro::getAutor))
+				.collect(Collectors.toList());
+
+		assertEquals(lista2, listaOrdenada);
+	}
+
 }
