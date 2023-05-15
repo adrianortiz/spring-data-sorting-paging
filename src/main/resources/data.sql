@@ -5,6 +5,7 @@ INSERT INTO libros VALUES ('4A', 'C#', 'Cecilio', '2021-01-20', 20);
 INSERT INTO libros VALUES ('5A', 'JavaScript', 'Ana', '2021-02-10', 15);
 INSERT INTO libros VALUES ('6C', 'Java EE', 'Gema', '2021-03-20', 50);
 -- INSERT INTO libros VALUES ('7B', 'Java EE', null, '2021-03-20', 50);
+INSERT INTO libros VALUES ('7B', 'Java EE', 'Adrian', '2021-03-20', 50);
 
 INSERT capitulos VALUES ('Introducción', 30, '1A');
 INSERT capitulos VALUES ('Sintaxis Basica', 25, '1A');
