@@ -110,4 +110,22 @@ class OrdenacionesTest {
 		assertEquals(libros, lista2.stream().limit(2).collect(Collectors.toList()));
 	}
 
+	@Test
+	void buscarTodosPaginadoSiguiente() {
+		Page<Libro> pagina = repositorioLibro.findAll(PageRequest.of(0, 2));
+		List<Libro> libros = pagina.getContent();
+
+		Iterable<Libro> it = repositorioLibro.findAll();
+		List<Libro> lista2 = new ArrayList<Libro>();
+		it.forEach(lista2::add);
+
+		Page<Libro> siguiente = repositorioLibro.findAll(pagina.nextPageable());
+
+		assertEquals(siguiente.getContent(), lista2.stream()
+				.skip(2)
+				.limit(2)
+				.collect(Collectors.toList()));
+	}
+
+
 }
