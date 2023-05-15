@@ -1,13 +1,13 @@
 package com.company.springdata;
 
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public interface LibroRepository extends CrudRepository<Libro, String> {
+public interface LibroRepository extends PagingAndSortingRepository<Libro, String> {
 
     public List<Libro> findByTitulo(String titulo);
     public List<Libro> findByAutor(String autor);
