@@ -207,4 +207,10 @@ class LibroTest {
 		assertThat(lista, hasItem(new Libro("7B")));
 	}
 
+	@Test
+	void calcularMediaPrecioLibro() {
+		double media = repositorioLibro.findPrecioMedioLibros();
+		assertThat(media, greaterThan(10.0));
+	}
+
 }

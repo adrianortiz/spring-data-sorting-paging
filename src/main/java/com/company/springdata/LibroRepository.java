@@ -1,5 +1,6 @@
 package com.company.springdata;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;
@@ -25,4 +26,7 @@ public interface LibroRepository extends CrudRepository<Libro, String> {
     public List<Libro> findByTituloIn(Collection<String> collection);
     public List<Libro> findCaros();
     public List<Libro> findCarosConFecha(Date fecha);
+
+    @Query("select avg(l.precio) from Libro l")
+    public double findPrecioMedioLibros();
 }
