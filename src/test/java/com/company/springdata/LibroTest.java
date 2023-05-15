@@ -213,4 +213,11 @@ class LibroTest {
 		assertThat(media, greaterThan(10.0));
 	}
 
+	@Test
+	void buscarTodosNativos() {
+		List<Libro> lista = repositorioLibro.findAllNativo();
+		assertThat(lista, hasItem(new Libro("6C")));
+		assertThat(lista, hasItem(new Libro("7B")));
+	}
+
 }

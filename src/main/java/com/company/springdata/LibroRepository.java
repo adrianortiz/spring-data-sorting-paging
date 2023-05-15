@@ -29,4 +29,7 @@ public interface LibroRepository extends CrudRepository<Libro, String> {
 
     @Query("select avg(l.precio) from Libro l")
     public double findPrecioMedioLibros();
+
+    @Query(value = "select * from Libros", nativeQuery = true)
+    public List<Libro> findAllNativo();
 }
