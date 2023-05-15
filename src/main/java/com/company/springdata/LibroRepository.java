@@ -32,4 +32,6 @@ public interface LibroRepository extends CrudRepository<Libro, String> {
 
     @Query(value = "select * from Libros", nativeQuery = true)
     public List<Libro> findAllNativo();
+
+    public List<Libro> findAllWithCapitulos();
 }

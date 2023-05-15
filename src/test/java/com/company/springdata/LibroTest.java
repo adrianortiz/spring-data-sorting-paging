@@ -220,4 +220,12 @@ class LibroTest {
 		assertThat(lista, hasItem(new Libro("7B")));
 	}
 
+	@Test
+	void buscarTodosConCapitulos() {
+		List<Libro> lista = repositorioLibro.findAllWithCapitulos();
+		int i = lista.indexOf(new Libro("1A"));
+		Libro libro = lista.get(i);
+		assertThat(libro.getCapitulos(),  hasItem(new Capitulo("Bucles")));
+	}
+
 }

@@ -10,6 +10,7 @@ import java.util.Objects;
 @Table(name = "Libros")
 @NamedQuery(name = "Libro.findCaros", query = "select l from Libro l where l.precio > 20")
 @NamedQuery(name = "Libro.findCarosConFecha", query = "select l from Libro l where l.precio > 20 and l.fecha > :fecha")
+@NamedQuery(name = "Libro.findAllWithCapitulos", query = "select distinct l from Libro l join fetch l.capitulos")
 public class Libro {
 
     @Id
