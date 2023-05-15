@@ -22,4 +22,5 @@ public interface LibroRepository extends CrudRepository<Libro, String> {
     public List<Libro> findByAutorIsNull();
     public List<Libro> findByTituloNot(String titulo);
     public List<Libro> findByTituloIn(Collection<String> collection);
+    public List<Libro> findCaros();
 }

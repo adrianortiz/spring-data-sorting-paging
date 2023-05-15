@@ -1,9 +1,6 @@
 package com.company.springdata;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Libros")
+@NamedQuery(name = "Libro.findCaros", query = "select l from Libro l where l.precio > 20")
 public class Libro {
 
     @Id

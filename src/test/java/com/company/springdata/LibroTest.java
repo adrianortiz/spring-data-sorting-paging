@@ -181,4 +181,12 @@ class LibroTest {
 		assertThat(lista, hasItem(new Libro("1A")));
 		assertThat(lista, hasItem(new Libro("3B")));
 	}
+
+	@Test
+	void buscarPorCaros() {
+		List<Libro> lista = repositorioLibro.findCaros();
+		assertThat(lista, hasItem(new Libro("6C")));
+		assertThat(lista, hasItem(new Libro("7B")));
+	}
+
 }
