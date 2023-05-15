@@ -37,4 +37,7 @@ public interface LibroRepository extends CrudRepository<Libro, String> {
 
     @Query("select distinct new com.company.springdata.LibroCapituloTituloDTO(l.titulo, c.titulo) from Libro l, Capitulo c")
     public List<LibroCapituloTituloDTO> findLibroCapituloDTO();
+
+    public List<Libro> findByOrderByTitulo();
+    public List<Libro> findByOrderByTituloAscAutorAsc();
 }
