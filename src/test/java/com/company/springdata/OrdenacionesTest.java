@@ -1,5 +1,7 @@
 package com.company.springdata;
 
+import com.company.springdata.entity.Libro;
+import com.company.springdata.repository.LibroRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,13 +10,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.jdbc.Sql;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest

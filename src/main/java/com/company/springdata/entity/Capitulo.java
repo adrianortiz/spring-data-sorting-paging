@@ -1,4 +1,4 @@
-package com.company.springdata;
+package com.company.springdata.entity;
 
 import javax.persistence.*;
 import java.util.Objects;

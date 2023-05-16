@@ -1,5 +1,6 @@
-package com.company.springdata;
+package com.company.springdata.repository;
 
+import com.company.springdata.entity.Capitulo;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

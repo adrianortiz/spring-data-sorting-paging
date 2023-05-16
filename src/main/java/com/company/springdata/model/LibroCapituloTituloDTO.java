@@ -1,4 +1,4 @@
-package com.company.springdata;
+package com.company.springdata.model;
 
 import java.util.Objects;
 

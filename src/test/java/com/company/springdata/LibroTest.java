@@ -1,5 +1,9 @@
 package com.company.springdata;
 
+import com.company.springdata.entity.Capitulo;
+import com.company.springdata.entity.Libro;
+import com.company.springdata.model.LibroCapituloTituloDTO;
+import com.company.springdata.repository.LibroRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
