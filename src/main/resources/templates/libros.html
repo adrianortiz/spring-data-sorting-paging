@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("form").submit(function () {
+
+               $("input:text").filter(function (){
+                  return $(this).val() == "";
+              }).attr("disabled", "disabled");
+
+           });
+
+        });
+    </script>
 </head>
 <body>
+
+<form>
+    Titulo: <input type="text" name="titulo"/>
+    <input type="submit">
+</form>
 
     <table>
         <tr th:each="libro: ${libros}">
