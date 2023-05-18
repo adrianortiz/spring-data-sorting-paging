@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Libros</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <link th:href="@{/css/libros.css}" rel="stylesheet" />
 </head>
 <body>
 
@@ -37,25 +37,9 @@
     </tr>
 </table>
 
-<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/libros.js}"></script>
 
-        $("form").submit(function () {
-
-            $("input:text").filter(function (){
-                return $(this).val() == "";
-            }).attr("disabled", "disabled");
-
-        });
-
-        $(".orden").click(function (e) {
-            e.preventDefault();
-            $("#orden").val($(this).text());
-            $("form").submit();
-        })
-
-    });
 </script>
 </body>
 </html>
