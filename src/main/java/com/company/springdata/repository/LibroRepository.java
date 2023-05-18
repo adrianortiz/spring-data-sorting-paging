@@ -42,4 +42,10 @@ public interface LibroRepository extends PagingAndSortingRepository<Libro, Strin
 
     public List<Libro> findByOrderByTitulo();
     public List<Libro> findByOrderByTituloAscAutorAsc();
+
+    public List<Libro> findAllByOrderByIsbn();
+    public List<Libro> findAllByOrderByTitulo();
+    public List<Libro> findAllByOrderByAutor();
+    public List<Libro> findAllByOrderByPrecio();
+    public List<Libro> findAllByOrderByFecha();
 }

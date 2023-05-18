@@ -10,10 +10,25 @@
 <form>
     Titulo: <input type="text" name="titulo"/>
     Autor: <input type="text" name="autor" />
+    <input type="hidden" id="orden" name="orden" value="isbn" />
     <input type="submit">
 </form>
 
 <table>
+    <tr>
+        <th>
+            <a class="orden" href="">isbn</a>
+        </th>
+        <th>
+            <a class="orden" href="">titulo</a>
+        </th>
+        <th>
+            <a class="orden" href="">autor</a>
+        </th>
+        <th>
+            <a class="orden" href="">precio</a>
+        </th>
+    </tr>
     <tr th:each="libro: ${libros}">
         <td th:text="${libro.isbn}"></td>
         <td th:text="${libro.titulo}"></td>
@@ -33,6 +48,12 @@
             }).attr("disabled", "disabled");
 
         });
+
+        $(".orden").click(function (e) {
+            e.preventDefault();
+            $("#orden").val($(this).text());
+            $("form").submit();
+        })
 
     });
 </script>

@@ -14,6 +14,28 @@ public class LibroController {
     @Autowired
     LibroRepository repository;
 
+    @RequestMapping(value = "buscartodos", params = "orden")
+    public String buscarTodos(Model modelo, String orden) {
+        Iterable<Libro> libros = null;
+
+        if (orden.equals("isbn")) {
+            libros = repository.findAllByOrderByIsbn();
+        } else if (orden.equals("titulo")) {
+            libros = repository.findAllByOrderByTitulo();
+        } else if (orden.equals("autor")) {
+            libros = repository.findAllByOrderByAutor();
+        } else if (orden.equals("precio")) {
+            libros = repository.findAllByOrderByPrecio();
+        } else if (orden.equals("fecha")) {
+            libros = repository.findAllByOrderByFecha();
+        } else {
+            libros = repository.findAll();
+        }
+
+        modelo.addAttribute("libros", libros);
+        return "libros";
+    }
+
     @RequestMapping("buscartodos")
     public String buscarTodos(Model model) {
 
