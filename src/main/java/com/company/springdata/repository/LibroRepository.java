@@ -2,6 +2,7 @@ package com.company.springdata.repository;
 
 import com.company.springdata.model.LibroCapituloTituloDTO;
 import com.company.springdata.entity.Libro;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -12,12 +13,19 @@ import java.util.List;
 public interface LibroRepository extends PagingAndSortingRepository<Libro, String> {
 
     public List<Libro> findByTitulo(String titulo);
+    public List<Libro> findByTitulo(String titulo, Sort orden);
+
     public List<Libro> findByAutor(String autor);
+    public List<Libro> findByAutor(String autor, Sort orden);
+
     public List<Libro> findByPrecio(double precio);
     public List<Libro> findByPrecioGreaterThan(double precio);
     public List<Libro> findByPrecioLessThan(double precio);
     public List<Libro> findByPrecioBetween(double precio1, double precio2);
+
     public List<Libro> findByTituloAndAutor(String titulo, String autor);
+    public List<Libro> findByTituloAndAutor(String titulo, String autor, Sort orden);
+
     public List<Libro> findByTituloOrAutor(String titulo, String autor);
     public List<Libro> findByTituloLike(String titulo);
     public List<Libro> findByTituloContaining(String titulo);

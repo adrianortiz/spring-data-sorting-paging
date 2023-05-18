@@ -8,8 +8,8 @@
 <body>
 
 <form>
-    Titulo: <input type="text" name="titulo"/>
-    Autor: <input type="text" name="autor" />
+    Titulo: <input type="text" name="titulo" th:value="${titulo}"/>
+    Autor: <input type="text" name="autor" th:value="${autor}"/>
     <input type="hidden" id="orden" name="orden" value="isbn" />
     <input type="submit">
 </form>

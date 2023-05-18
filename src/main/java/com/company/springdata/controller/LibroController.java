@@ -71,4 +71,29 @@ public class LibroController {
         modelo.addAttribute("libros", libros);
         return "libros";
     }
+
+    @RequestMapping(value = "buscartodos", params = {"titulo", "orden"})
+    public String buscarTodosPorTitulo(String titulo, String orden, Model modelo){
+        Iterable<Libro> libros = repository.findByTitulo(titulo, Sort.by(orden));
+        modelo.addAttribute("libros", libros);
+        modelo.addAttribute("titulo", titulo);
+        return "libros";
+    }
+
+    @RequestMapping(value = "buscartodos", params = {"autor", "orden"})
+    public String buscarTodosPorAutor(String autor, String orden, Model modelo) {
+        Iterable<Libro> libros = repository.findByAutor(autor, Sort.by(orden));
+        modelo.addAttribute("libros", libros);
+        modelo.addAttribute("autor", autor);
+        return "libros";
+    }
+
+    @RequestMapping(value = "buscartodos", params = {"titulo", "autor", "orden"})
+    public String buscarTodosPorTituloyAutor(String titulo, String autor, String orden, Model modelo) {
+        Iterable<Libro> libros = repository.findByTituloAndAutor(titulo, autor, Sort.by(orden));
+        modelo.addAttribute("libros", libros);
+        modelo.addAttribute("titulo", titulo);
+        modelo.addAttribute("autor", autor);
+        return "libros";
+    }
 }
