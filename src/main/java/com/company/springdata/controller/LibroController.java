@@ -29,4 +29,11 @@ public class LibroController {
         modelo.addAttribute("libros", libros);
         return "libros";
     }
+
+    @RequestMapping(value = "buscartodos", params = "autor")
+    public String buscarTodosPorAutor(String autor, Model modelo) {
+        Iterable<Libro> libros = repository.findByAutor(autor);
+        modelo.addAttribute("libros", libros);
+        return "libros";
+    }
 }
