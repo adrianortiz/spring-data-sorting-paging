@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/libros")
@@ -16,7 +17,7 @@ public class LibroController {
     LibroRepository repository;
 
     @RequestMapping(value = "buscartodos", params = "orden")
-    public String buscarTodos(Model modelo, String orden) {
+    public String buscarTodos(Model modelo, @RequestParam(name = "orden", defaultValue = "isbn") String orden) {
 
         Iterable<Libro> libros = null;
         libros = repository.findAll(Sort.by(orden));
