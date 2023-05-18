@@ -2,24 +2,8 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script
-            src="https://code.jquery.com/jquery-3.7.0.min.js"
-            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-            crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            $("form").submit(function () {
-
-               $("input:text").filter(function (){
-                  return $(this).val() == "";
-              }).attr("disabled", "disabled");
-
-           });
-
-        });
-    </script>
+    <title>Libros</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
 </head>
 <body>
 
@@ -28,14 +12,28 @@
     <input type="submit">
 </form>
 
-    <table>
-        <tr th:each="libro: ${libros}">
-            <td th:text="${libro.isbn}"></td>
-            <td th:text="${libro.titulo}"></td>
-            <td th:text="${libro.autor}"></td>
-            <td th:text="${libro.precio}"></td>
-        </tr>
-    </table>
+<table>
+    <tr th:each="libro: ${libros}">
+        <td th:text="${libro.isbn}"></td>
+        <td th:text="${libro.titulo}"></td>
+        <td th:text="${libro.autor}"></td>
+        <td th:text="${libro.precio}"></td>
+    </tr>
+</table>
 
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("form").submit(function () {
+
+            $("input:text").filter(function (){
+                return $(this).val() == "";
+            }).attr("disabled", "disabled");
+
+        });
+
+    });
+</script>
 </body>
 </html>
