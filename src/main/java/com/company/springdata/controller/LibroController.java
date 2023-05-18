@@ -36,4 +36,11 @@ public class LibroController {
         modelo.addAttribute("libros", libros);
         return "libros";
     }
+
+    @RequestMapping(value = "buscartodos", params = {"titulo", "autor"})
+    public String buscarTodosPorTituloyAutor(String titulo, String autor, Model modelo) {
+        Iterable<Libro> libros = repository.findByTituloAndAutor(titulo, autor);
+        modelo.addAttribute("libros", libros);
+        return "libros";
+    }
 }
