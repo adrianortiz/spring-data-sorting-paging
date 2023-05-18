@@ -32,12 +32,12 @@ Actualmente este proyecto no está terminado y posiblemente presente anomalias e
     - Ejecutar
 
 
-### Visitanos en
-[Codizer Dev](https://codizer.com.mx/)
+
 
 
 ## Imagenes del proyecto
 ![Pantalla principal](https://github.com/adrianortiz/spring-data-sorting-paging/blob/main/src/main/resources/screenshot-01.png)
+![Pantalla principa](https://github.com/adrianortiz/spring-data-sorting-paging/blob/main/src/main/resources/screenshot-02.png)
 
 
 ## Spring Framework

@@ -3,39 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <title>Libros</title>
+    <link th:href="@{/css/normalize.css}" rel="stylesheet" />
     <link th:href="@{/css/libros.css}" rel="stylesheet" />
 </head>
-<body>
+<body id="main-container">
+<div class="header">
+    <div class="logo-container">
+        <img th:src="@{/images/logo.png}" alt="Book Logo" width="38" height="38">
+    </div>
+    <div class="header-title-icon-1"></div>
+    <div class="main-options header-title">
+        <div class="main-title">
+            <h6>Spring Boot</h6>
+            <h5>Sorting and Paging</h5>
+        </div>
+    </div>
+    <div class="header-title-icon-2"></div>
+    <div class="header-title-icon-3"></div>
 
-<form>
-    Titulo: <input type="text" name="titulo" th:value="${titulo}"/>
-    Autor: <input type="text" name="autor" th:value="${autor}"/>
-    <input type="hidden" id="orden" name="orden" value="isbn" />
-    <input type="submit">
-</form>
+</div>
+<div class="main-menu">
 
-<table>
-    <tr>
-        <th>
-            <a class="orden" href="">isbn</a>
-        </th>
-        <th>
-            <a class="orden" href="">titulo</a>
-        </th>
-        <th>
-            <a class="orden" href="">autor</a>
-        </th>
-        <th>
-            <a class="orden" href="">precio</a>
-        </th>
-    </tr>
-    <tr th:each="libro: ${libros}">
-        <td th:text="${libro.isbn}"></td>
-        <td th:text="${libro.titulo}"></td>
-        <td th:text="${libro.autor}"></td>
-        <td th:text="${libro.precio}"></td>
-    </tr>
-</table>
+</div>
+<div class="main-filter">
+    <div class="main-options">
+        <div class="main-title">
+            <h6>Buscar</h6>
+            <h5>Libros</h5>
+        </div>
+    </div>
+    <form>
+        <label for="input-titulo">Titulo:</label>
+        <input type="text" name="titulo" id="input-titulo" placeholder="Ingresa titulo" th:value="${titulo}"/>
+
+        <label for="input-autor">Autor:</label>
+        <input type="text" name="autor" id="input-autor" placeholder="Ingresa autor" th:value="${autor}"/>
+
+        <input type="hidden" id="orden" name="orden" value="isbn" />
+
+        <input type="submit" class="btn-submit">
+    </form>
+</div>
+
+<div class="main-body">
+    <div class="main-options">
+        <div class="main-title">
+            <h6>Administrar</h6>
+            <h5>Libros</h5>
+        </div>
+        <div class="btn-new-book">
+            <button>
+                <div class="btn-new-icon">+</div>
+                <div class="btn-new-text">Nuevo</div>
+            </button>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <th width="50">
+
+            </th>
+            <th>
+                <a class="orden" href="">isbn</a>
+            </th>
+            <th>
+                <a class="orden" href="">titulo</a>
+            </th>
+            <th>
+                <a class="orden" href="">autor</a>
+            </th>
+            <th>
+                <a class="orden" href="">precio</a>
+            </th>
+            <th>
+                <a class="orden" href="">fecha</a>
+            </th>
+        </tr>
+        <tr th:each="libro: ${libros}">
+            <td>
+                <div class="book-icon"></div>
+            </td>
+            <td th:text="${libro.isbn}" style="font-weight: bold"></td>
+            <td th:text="${libro.titulo}"></td>
+            <td th:text="${libro.autor}"></td>
+            <td th:text="${libro.precio}"></td>
+            <td th:text="${libro.fecha}"></td>
+        </tr>
+    </table>
+</div>
 
 <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/libros.js}"></script>
