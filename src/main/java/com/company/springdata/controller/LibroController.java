@@ -94,6 +94,7 @@ public class LibroController {
         modelo.addAttribute("libros", libros);
         modelo.addAttribute("titulo", titulo);
         modelo.addAttribute("autor", autor);
+
         return "libros";
     }
 }
