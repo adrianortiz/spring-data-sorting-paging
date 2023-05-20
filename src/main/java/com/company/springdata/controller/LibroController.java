@@ -3,6 +3,7 @@ package com.company.springdata.controller;
 import com.company.springdata.entity.Libro;
 import com.company.springdata.repository.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,10 +43,16 @@ public class LibroController {
         return "libros";
     }
 
-    @RequestMapping("buscartodos")
-    public String buscarTodos(Model model) {
+    @RequestMapping(value = "buscartodos")
+    public String buscarTodos(Model modelo) {
+        return buscarTodos(0, 2, modelo);
+    }
 
-        Iterable<Libro> libros = repository.findAll();
+    @RequestMapping(value = "buscartodos", params = {"pagina", "size"})
+    public String buscarTodos(@RequestParam(name = "pagina", defaultValue = "0") int pagina,
+                              @RequestParam(name = "size", defaultValue = "2") int size, Model model) {
+
+        Iterable<Libro> libros = repository.findAll(PageRequest.of(pagina, size));
         model.addAttribute("libros", libros);
 
         return "libros";
