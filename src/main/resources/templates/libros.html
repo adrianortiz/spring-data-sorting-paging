@@ -88,13 +88,14 @@
             <td th:text="${libro.isbn}" style="font-weight: bold"></td>
             <td th:text="${libro.titulo}"></td>
             <td th:text="${libro.autor}"></td>
-            <td th:text="${libro.precio}"></td>
-            <td th:text="${libro.fecha}"></td>
+            <td>$[[${libro.precio}]]</td>
+            <td><span th:text="${#strings.replace(libro.fecha, ' 00:00:00.0', '')}" th:remove="tag"></span></td>
         </tr>
     </table>
 
     <div class="paging-container">
         <button id="btn-paging-back"><span><</span> Atras</button>
+        <button id="btn-paging-number"><span th:text="${pagina}+1"></span></button>
         <button id="btn-paging-next">Siguiente <span>></span></button>
     </div>
 

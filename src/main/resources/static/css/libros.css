@@ -89,11 +89,6 @@ form {
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #FFFFFF;
     font-size: 13px;
-    -webkit-transition: 0.3s ease;
-    -moz-transition: 0.3s ease;
-    -ms-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
-    transition: 0.3s ease;
 }
 
 .btn-submit:hover {
@@ -162,11 +157,6 @@ label {
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #FFFFFF;
     padding: 4px 4px 4px 4px;
-    -webkit-transition: 0.3s ease;
-    -moz-transition: 0.3s ease;
-    -ms-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
-    transition: 0.3s ease;
 }
 
 .btn-new-book button:hover {
@@ -265,11 +255,7 @@ th .orden {
     display: block;
     border-radius: 8px !important;
     text-transform: capitalize;
-    -webkit-transition: 0.3s ease;
-    -moz-transition: 0.3s ease;
-    -ms-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
-    transition: 0.3s ease;
+
 }
 
 th .orden:hover {
@@ -318,17 +304,25 @@ tr:hover {
     padding: 10px;
 }
 
-#btn-paging-back, #btn-paging-next {
+#btn-paging-number, #btn-paging-back, #btn-paging-next {
     width: auto;
     height: auto;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     border-radius: 100px;
     color: #363A3E;
     font-weight: bold;
     font-size: 14px;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+#btn-paging-number {
+    background-color: #363A3E;
+    color: #FFFFFF;
+    margin: 0 4px;
+    cursor: none;
+    padding: 8px 12px;
 }
 
 #btn-paging-back:hover, #btn-paging-next:hover {
@@ -345,9 +339,10 @@ tr:hover {
 
 #btn-paging-back span, #btn-paging-next span {
     display: inline-block;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #FFFFFF;
     padding-top: 5px;
     width: 26px;
     height: 26px;
     border-radius: 100px;
 }
+
