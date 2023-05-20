@@ -19,26 +19,8 @@ public class LibroController {
 
     @RequestMapping(value = "buscartodos", params = "orden")
     public String buscarTodos(Model modelo, @RequestParam(name = "orden", defaultValue = "isbn") String orden) {
-
         Iterable<Libro> libros = null;
         libros = repository.findAll(Sort.by(orden));
-
-        /*
-        if (orden.equals("isbn")) {
-            libros = repository.findAllByOrderByIsbn();
-        } else if (orden.equals("titulo")) {
-            libros = repository.findAllByOrderByTitulo();
-        } else if (orden.equals("autor")) {
-            libros = repository.findAllByOrderByAutor();
-        } else if (orden.equals("precio")) {
-            libros = repository.findAllByOrderByPrecio();
-        } else if (orden.equals("fecha")) {
-            libros = repository.findAllByOrderByFecha();
-        } else {
-            libros = repository.findAll();
-        }
-        */
-
         modelo.addAttribute("libros", libros);
         return "libros";
     }
@@ -79,11 +61,24 @@ public class LibroController {
         return "libros";
     }
 
+    /*
     @RequestMapping(value = "buscartodos", params = {"titulo", "orden"})
     public String buscarTodosPorTitulo(String titulo, String orden, Model modelo){
         Iterable<Libro> libros = repository.findByTitulo(titulo, Sort.by(orden));
         modelo.addAttribute("libros", libros);
         modelo.addAttribute("titulo", titulo);
+        return "libros";
+    }
+     */
+
+    @RequestMapping(value = "buscarTodos", params = {"titulo", "orden", "pagina", "size"})
+    public String buscarTodosPorTitulo(String titulo, String orden,
+                                       @RequestParam(name = "pagina", defaultValue = "0") int pagina,
+                                       @RequestParam(name = "size", defaultValue = "8") int size, Model modelo) {
+        Iterable<Libro> libros = repository.findByTitulo(titulo, PageRequest.of(pagina, size, Sort.by(orden)));
+        modelo.addAttribute("libros", libros);
+        modelo.addAttribute("titulo", titulo);
+        modelo.addAttribute("pagina", pagina);
         return "libros";
     }
 
