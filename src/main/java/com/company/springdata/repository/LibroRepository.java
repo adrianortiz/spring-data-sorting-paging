@@ -31,6 +31,9 @@ public interface LibroRepository extends PagingAndSortingRepository<Libro, Strin
     public List<Libro> findByTituloAndAutor(String titulo, String autor, Pageable paginable);
 
     public List<Libro> findByTituloOrAutor(String titulo, String autor);
+    public List<Libro> findByTituloOrAutor(String titulo, String autor, Sort orden);
+    public List<Libro> findByTituloOrAutor(String titulo, String autor, Pageable paginable);
+
     public List<Libro> findByTituloLike(String titulo);
     public List<Libro> findByTituloContaining(String titulo);
     public List<Libro> findByTituloStartingWith(String titulo);
