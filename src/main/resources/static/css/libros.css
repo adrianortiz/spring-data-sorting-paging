@@ -310,3 +310,44 @@ tr {
 tr:hover {
     background-color: rgba(80, 84, 87, 0.04);
 }
+
+.paging-container {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+#btn-paging-back, #btn-paging-next {
+    width: auto;
+    height: auto;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 100px;
+    color: #363A3E;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#btn-paging-back:hover, #btn-paging-next:hover {
+ color: #283897;
+}
+
+#btn-paging-back {
+    padding: 6px 14px 6px 6px;
+}
+
+#btn-paging-next {
+    padding: 6px 6px 6px 14px;
+}
+
+#btn-paging-back span, #btn-paging-next span {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding-top: 5px;
+    width: 26px;
+    height: 26px;
+    border-radius: 100px;
+}

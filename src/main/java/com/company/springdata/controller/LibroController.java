@@ -45,16 +45,16 @@ public class LibroController {
 
     @RequestMapping(value = "buscartodos")
     public String buscarTodos(Model modelo) {
-        return buscarTodos(0, 2, modelo);
+        return buscarTodos(0, 8, modelo);
     }
 
     @RequestMapping(value = "buscartodos", params = {"pagina", "size"})
     public String buscarTodos(@RequestParam(name = "pagina", defaultValue = "0") int pagina,
-                              @RequestParam(name = "size", defaultValue = "2") int size, Model model) {
+                              @RequestParam(name = "size", defaultValue = "8") int size, Model model) {
 
         Iterable<Libro> libros = repository.findAll(PageRequest.of(pagina, size));
         model.addAttribute("libros", libros);
-
+        model.addAttribute("pagina", pagina);
         return "libros";
     }
 
