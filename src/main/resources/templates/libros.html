@@ -40,7 +40,7 @@
         <input type="text" name="autor" id="input-autor" placeholder="Ingresa autor" th:value="${autor}"/>
 
         <input type="hidden" id="orden" name="orden" value="isbn" />
-        <input type="hidden" id="pagina" name="pagina" value="0" />
+        <input type="hidden" id="pagina" name="pagina" th:value="${pagina}" />
         <input type="hidden" id="size" name="size" value="2">
 
         <input type="submit" class="btn-submit">
@@ -92,6 +92,12 @@
             <td th:text="${libro.fecha}"></td>
         </tr>
     </table>
+
+    <div class="paging-container">
+        <button id="btn-paging-next"><</button>
+        <button id="btn-paging-back">></button>
+    </div>
+
 </div>
 
 <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
