@@ -19,29 +19,19 @@ public class LibroController {
     @Autowired
     LibroRepository repository;
 
-    @RequestMapping(value = "buscartodos")
-    public String buscarTodosPorTituloyAutor(@RequestParam(required = false) String titulo,
-                                             @RequestParam(required = false) String autor,
+    @RequestMapping(value = "buscar")
+    public String buscarTodosPorTituloyAutor(Libro libro,
                                              @RequestParam(required = false, defaultValue = "isbn") String orden,
                                              @RequestParam(name = "pagina", defaultValue = "0") int pagina,
                                              @RequestParam(name = "size", defaultValue = "8") int size,
                                              Model modelo) {
-        Libro libro = new Libro();
-
-        if (titulo != null) {
-            libro.setTitulo(titulo);
-        }
-
-        if (autor != null) {
-            libro.setAutor(autor);
-        }
 
         Example<Libro> libroExample = Example.of(libro, ExampleMatcher.matchingAll().withIgnoreNullValues().withIgnorePaths("precio").withIgnorePaths("fecha"));
 
         Iterable<Libro> libros = repository.findAll(libroExample, PageRequest.of(pagina, size, Sort.by(orden)));
         modelo.addAttribute("libros", libros);
-        modelo.addAttribute("titulo", titulo);
-        modelo.addAttribute("autor", autor);
+        modelo.addAttribute("titulo", libro.getTitulo());
+        modelo.addAttribute("autor", libro.getAutor());
         modelo.addAttribute("orden", orden);
         modelo.addAttribute("pagina", pagina);
         return "libros";
