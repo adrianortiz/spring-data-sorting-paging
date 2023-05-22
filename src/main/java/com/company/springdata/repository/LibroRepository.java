@@ -6,12 +6,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.QueryByExampleExecutor;
 
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public interface LibroRepository extends PagingAndSortingRepository<Libro, String> {
+public interface LibroRepository extends PagingAndSortingRepository<Libro, String>, QueryByExampleExecutor<Libro> {
 
     public List<Libro> findByTitulo(String titulo);
     public List<Libro> findByTitulo(String titulo, Sort orden);
