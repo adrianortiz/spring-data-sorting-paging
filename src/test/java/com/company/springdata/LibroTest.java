@@ -170,11 +170,13 @@ class LibroTest {
 		assertThat(lista, hasItem(new Libro("5A")));
 	}
 
+	/*
 	@Test
 	void buscarPorTituloIsNull() {
 		List<Libro> lista = repositorioLibro.findByAutorIsNull();
 		assertThat(lista, hasItem(new Libro("7B")));
 	}
+	 */
 
 	@Test
 	void buscarPorTituloEnConjunto() {

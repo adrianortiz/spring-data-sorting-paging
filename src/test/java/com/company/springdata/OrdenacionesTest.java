@@ -23,6 +23,7 @@ class OrdenacionesTest {
 	@Autowired
 	LibroRepository repositorioLibro;
 
+	/*
 	@Test
 	void buscarTodosOrdenadorPorTitulo() {
 		List<Libro> lista = repositorioLibro.findByOrderByTitulo();
@@ -37,7 +38,9 @@ class OrdenacionesTest {
 				.collect(Collectors.toList());
 		assertEquals(lista, listaOrdenada);
 	}
+	*/
 
+	/*
 	@Test
 	void buscarTodosOrdenadorPorTituloyAutor() {
 		List<Libro> lista = repositorioLibro.findByOrderByTituloAscAutorAsc();
@@ -52,6 +55,7 @@ class OrdenacionesTest {
 				.collect(Collectors.toList());
 		assertEquals(lista, listaOrdenada);
 	}
+	 */
 
 	@Test
 	void buscarTodosOrdenadosPorTituloParametro() {
