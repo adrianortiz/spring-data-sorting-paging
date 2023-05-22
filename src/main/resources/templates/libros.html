@@ -2,9 +2,10 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Libros</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link th:href="@{/css/normalize.css}" rel="stylesheet" />
     <link th:href="@{/css/libros.css}" rel="stylesheet" />
+    <title>Libros</title>
 </head>
 <body id="main-container">
 <div class="header">
@@ -15,7 +16,7 @@
     <div class="main-options header-title">
         <div class="main-title">
             <h6>Spring Boot</h6>
-            <h5>Sorting and Paging</h5>
+            <h5>Administración</h5>
         </div>
     </div>
     <div class="header-title-icon-2"></div>
@@ -23,13 +24,20 @@
 
 </div>
 <div class="main-menu">
-
+    <div class="main-menu-options">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="main-menu-user">
+        <div></div>
+    </div>
 </div>
 <div class="main-filter">
     <div class="main-options">
         <div class="main-title">
-            <h6>Buscar</h6>
-            <h5>Libros</h5>
+            <h6>Formulario</h6>
+            <h5>Buscar por</h5>
         </div>
     </div>
     <form>
@@ -43,7 +51,7 @@
         <input type="hidden" id="pagina" name="pagina" th:value="${pagina}" />
         <input type="hidden" id="size" name="size" value="8">
 
-        <input type="submit" class="btn-submit">
+        <input type="submit" class="btn-submit" value="Buscar">
     </form>
 </div>
 
@@ -60,7 +68,8 @@
             </button>
         </div>
     </div>
-    <table>
+    <div class="table-container">
+        <table>
         <tr>
             <th width="50">
 
@@ -92,6 +101,7 @@
             <td><span th:text="${#strings.replace(libro.fecha, ' 00:00:00.0', '')}" th:remove="tag"></span></td>
         </tr>
     </table>
+    </div>
 
     <div class="paging-container">
         <button id="btn-paging-back"><span><</span> Atras</button>
