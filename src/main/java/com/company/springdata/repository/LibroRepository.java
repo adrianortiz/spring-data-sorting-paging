@@ -1,7 +1,8 @@
 package com.company.springdata.repository;
 
-import com.company.springdata.model.LibroCapituloTituloDTO;
+import com.company.springdata.dto.LibroCapituloTituloDTO;
 import com.company.springdata.entity.Libro;
+import com.company.springdata.proyection.IsbnTituloProyection;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
@@ -53,7 +54,7 @@ public interface LibroRepository extends PagingAndSortingRepository<Libro, Strin
 
     public List<Libro> findAllWithCapitulos();
 
-    @Query("select distinct new com.company.springdata.model.LibroCapituloTituloDTO(l.titulo, c.titulo) from Libro l, Capitulo c")
+    @Query("select distinct new com.company.springdata.dto.LibroCapituloTituloDTO(l.titulo, c.titulo) from Libro l, Capitulo c")
     public List<LibroCapituloTituloDTO> findLibroCapituloDTO();
 
     public List<Libro> findByOrderByTitulo();
@@ -61,8 +62,9 @@ public interface LibroRepository extends PagingAndSortingRepository<Libro, Strin
 
     public List<Libro> findAllByOrderByIsbn();
     public List<Libro> findAllByOrderByTitulo();
-    public List<Libro> findAllByOrderByAutor();
     public List<Libro> findAllByOrderByPrecio();
     public List<Libro> findAllByOrderByFecha();
+
+    public List<IsbnTituloProyection> findAllByOrderByAutor();
 
 }

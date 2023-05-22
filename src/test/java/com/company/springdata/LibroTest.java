@@ -2,7 +2,8 @@ package com.company.springdata;
 
 import com.company.springdata.entity.Capitulo;
 import com.company.springdata.entity.Libro;
-import com.company.springdata.model.LibroCapituloTituloDTO;
+import com.company.springdata.dto.LibroCapituloTituloDTO;
+import com.company.springdata.proyection.IsbnTituloProyection;
 import com.company.springdata.repository.LibroRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -238,6 +239,12 @@ class LibroTest {
 
 		LibroCapituloTituloDTO miDTO = new LibroCapituloTituloDTO("Java", "Sintaxis Basica");
 		assertThat(lista, hasItem(miDTO));
+	}
+
+	@Test
+	void buscarTodosPoyection() {
+		List<IsbnTituloProyection> lista = repositorioLibro.findAllByOrderByAutor();
+		assertNotNull(lista);
 	}
 
 }

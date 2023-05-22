@@ -1,4 +1,4 @@
-package com.company.springdata.model;
+package com.company.springdata.dto;
 
 import java.util.Objects;
 
