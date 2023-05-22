@@ -5,6 +5,7 @@ import com.company.springdata.entity.Libro;
 import com.company.springdata.proyection.IsbnTituloProyection;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.QueryByExampleExecutor;
@@ -13,7 +14,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public interface LibroRepository extends PagingAndSortingRepository<Libro, String>, QueryByExampleExecutor<Libro> {
+public interface LibroRepository extends PagingAndSortingRepository<Libro, String>, QueryByExampleExecutor<Libro>, JpaSpecificationExecutor<Libro> {
 
     public List<Libro> findByTitulo(String titulo);
     public List<Libro> findByTitulo(String titulo, Sort orden);
