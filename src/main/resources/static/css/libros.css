@@ -112,7 +112,7 @@ form {
     width: 90%;
     height: 36px;
     margin: 6px 12px 12px 12px;
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    border: 0px solid rgba(0, 0, 0, 0.03);
     border-radius: 6px;
     background: rgba(80, 84, 87, 0.06);
     padding: 10px;
@@ -221,7 +221,7 @@ label {
 
 .btn-new-book button .btn-new-text {
     float: left;
-    padding: 6px 12px 0px 12px;
+    padding: 6px 12px 0px 10px;
     font-size: 14px;
     color: #FFFFFF;
 }
@@ -356,7 +356,7 @@ tr:hover {
     width: auto;
     height: auto;
     background: rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border: 0px solid rgba(0, 0, 0, 0.04);
     border-radius: 100px;
     color: #363A3E;
     font-weight: bold;
@@ -385,6 +385,14 @@ tr:hover {
     padding: 6px 6px 6px 14px;
 }
 
+#btn-paging-back span {
+    margin-right: 4px;
+}
+
+#btn-paging-next span {
+    margin-left: 4px;
+}
+
 #btn-paging-back span, #btn-paging-next span {
     display: inline-block;
     background-color: #FFFFFF;
@@ -398,6 +406,19 @@ tr:hover {
     width: 100%;
     height: auto;
     overflow: auto;
+}
+
+.msj-no-data {
+    font-size: 13px;
+    padding: 12px 18px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 0, 0, 0.3);
+    color: #CC0000;
+    font-weight: bold;
+    width: auto;
+    height: auto;
+    display: inline-block;
 }
 
 @media (max-width: 1024px) {
@@ -567,4 +588,138 @@ tr:hover {
         margin-right: 10px;
     }
 
+}
+
+@media (max-width: 320px) {
+
+    body {
+        background: #111111;
+    }
+
+    .header {
+        background: #111111;
+    }
+
+    .logo-container {
+        background-color: transparent;
+        border: 1px solid #000000;
+    }
+
+    .header-title .main-title h5 {
+        color: #FFFFFF;
+    }
+
+    .header-title-icon-3 {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .main-filter .main-options .main-title h5 {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .main-filter {
+        background: #000000;
+    }
+
+    .main-filter #input-titulo {
+        background: rgba(255, 255, 255, 0.1);
+        border: 0px solid rgba(0, 0, 0, 0.03);
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .main-filter #input-autor {
+        background: rgba(255, 255, 255, 0.1);
+        border: 0px solid rgba(0, 0, 0, 0.03);
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .main-filter .btn-submit {
+        background: #283897;
+        border: 0px solid rgba(0, 0, 0, 0.03);
+        color: #FFFFFF;
+    }
+
+    .main-body {
+        background: linear-gradient(180deg, #1A1A1A 0%, #020000 100%);
+    }
+
+    .main-body .main-options {
+        border-bottom: 1px solid #000000;
+    }
+
+    .main-body .main-options .main-title h6 {
+        color: rgba(255, 255, 255, 0.34);
+    }
+
+    .main-body .main-options .main-title h5 {
+        color: #FFFFFF;
+    }
+
+    .btn-new-book button {
+        background: #000000;
+    }
+
+    .btn-new-book button .btn-new-icon {
+        background: #283897;
+        color: #FFFFFF;
+    }
+
+    th .orden {
+        color: #FFFFFF;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    th .orden:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+
+    th {
+        border: 0px solid #1E1D1D;
+        border-bottom: 0px solid #1E1D1D;
+    }
+
+    th:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    td {
+        padding: 8px 15px;
+        text-align: center;
+        border: 0px solid #ddd;
+        border-bottom: 1px solid #1E1D1D;
+        font-size: 14px;
+
+    }
+
+    tr {
+        border: 0px solid #1E1D1D;
+    }
+
+    tr:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .book-icon {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    table, th, tr, td {
+        color: #FFFFFF;
+        border-left: solid 0px;
+        border-right: solid 0px;
+    }
+
+    #btn-paging-back, #btn-paging-next  {
+        background: #FFFFFF;
+        color: #000000;
+    }
+
+    #btn-paging-back span, #btn-paging-next span {
+        color: #FFFFFF;
+        background: #000000;
+    }
+
+    .btn-paging-number {
+        background: rgba(255, 255, 255, 0.1);
+    }
 }

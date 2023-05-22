@@ -2,9 +2,20 @@
 Aplicación Web basada en Spring Boot para el manejo del catálogo de Libros
 
 **Características:**
-* Buscar
-* Ordenar
-* Páginado
+* Diseño web
+  * Responsive Design
+  * Dark mode
+* Buscar Libro por:
+  * Título
+  * Autor
+* Ordenar Libro por:
+  * Isbn
+  * Título
+  * Autor
+  * Precio
+  * Fecha
+* Páginado de Libros
+* CRUD Rest Libros
 * y más
 
 Actualmente este proyecto no está terminado y posiblemente presente anomalias en su código fuente, por ende, se recomienda no usarlo en un ambiente productivo.
@@ -28,16 +39,15 @@ Actualmente este proyecto no está terminado y posiblemente presente anomalias e
 
 * Entrar al directorio del proyecto desde Consola/Terminal
 
-    - Instalar dependencias y empaquetar: `mvn clean install`
-    - Ejecutar
-
-
-
+    - Instalar dependencias: `mvn clean`
+    - Instalar empaquetar: `mvn install`
+    - Desplegar
+  
 
 
 ## Imagenes del proyecto
-![Pantalla principal](https://github.com/adrianortiz/spring-data-sorting-paging/blob/main/src/main/resources/screenshot-01.png)
-![Pantalla principa](https://github.com/adrianortiz/spring-data-sorting-paging/blob/main/src/main/resources/screenshot-02.png)
+![Pantalla principal](https://github.com/adrianortiz/spring-data-sorting-paging/blob/main/src/main/resources/static/images/screenshot-01.png)
+![Pantalla principa](https://github.com/adrianortiz/spring-data-sorting-paging/blob/main/src/main/resources/static/images/screenshot-02.png)
 
 
 ## Spring Framework

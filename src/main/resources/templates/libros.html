@@ -101,6 +101,9 @@
             <td><span th:text="${#strings.replace(libro.fecha, ' 00:00:00.0', '')}" th:remove="tag"></span></td>
         </tr>
     </table>
+        <div th:if="${#lists.size(libros) == 0}">
+                <div class="msj-no-data">No hay información</div>
+        </div>
     </div>
 
     <div class="paging-container">
