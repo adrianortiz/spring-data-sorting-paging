@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/rest/libros")
+@RequestMapping("/rest")
 public class LibroControllerRest {
 
     @Autowired

@@ -39,7 +39,7 @@
         <label for="input-autor">Autor:</label>
         <input type="text" name="autor" id="input-autor" placeholder="Ingresa autor" th:value="${autor}"/>
 
-        <input type="hidden" id="orden" name="orden" value="isbn" />
+        <input type="hidden" id="orden" name="orden" th:value="${orden}" />
         <input type="hidden" id="pagina" name="pagina" th:value="${pagina}" />
         <input type="hidden" id="size" name="size" value="8">
 
