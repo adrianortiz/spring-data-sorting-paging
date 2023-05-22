@@ -19,8 +19,7 @@ import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Sql({"/squema.sql", "/data.sql"})
@@ -245,6 +244,7 @@ class LibroTest {
 	void buscarTodosPoyection() {
 		List<IsbnTituloProyection> lista = repositorioLibro.findAllByOrderByAutor();
 		assertNotNull(lista);
+		assertEquals(lista.get(0).getIsbn(), "9A");
 	}
 
 }
