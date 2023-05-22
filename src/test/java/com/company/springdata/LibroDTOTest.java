@@ -3,9 +3,7 @@ package com.company.springdata;
 import com.company.springdata.dto.LibroCapituloTituloDTO;
 import com.company.springdata.entity.Capitulo;
 import com.company.springdata.entity.Libro;
-import com.company.springdata.proyection.IsbnTituloProyection;
 import com.company.springdata.repository.LibroRepository;
-import com.company.springdata.specification.LibroEspecificacion;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,19 +18,23 @@ import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @Sql({"/squema.sql", "/data.sql"})
-class EspecificationTest {
+class LibroDTOTest {
 
 	@Autowired
 	LibroRepository repositorioLibro;
 
 	@Test
-	void buscarTodosEspecificationTest() {
-		List<Libro> lista = repositorioLibro.findAll(LibroEspecificacion.tituloStartsWith("Java"));
+	void buscarTodosDTO() {
+		List<LibroCapituloTituloDTO> lista = repositorioLibro.findLibroCapituloDTO();
 		assertNotNull(lista);
-		assertThat(lista, hasItem(new Libro("6C")));
+
+		LibroCapituloTituloDTO miDTO = new LibroCapituloTituloDTO("Java", "Sintaxis Basica");
+		assertThat(lista, hasItem(miDTO));
 	}
+
 }

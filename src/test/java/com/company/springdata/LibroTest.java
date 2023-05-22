@@ -232,21 +232,4 @@ class LibroTest {
 		Libro libro = lista.get(i);
 		assertThat(libro.getCapitulos(),  hasItem(new Capitulo("Bucles")));
 	}
-
-	@Test
-	void buscarTodosDTO() {
-		List<LibroCapituloTituloDTO> lista = repositorioLibro.findLibroCapituloDTO();
-		assertNotNull(lista);
-
-		LibroCapituloTituloDTO miDTO = new LibroCapituloTituloDTO("Java", "Sintaxis Basica");
-		assertThat(lista, hasItem(miDTO));
-	}
-
-	@Test
-	void buscarTodosPoyection() {
-		List<IsbnTituloProyection> lista = repositorioLibro.findAllByOrderByAutor();
-		assertNotNull(lista);
-		assertEquals(lista.get(0).getIsbn(), "9A");
-	}
-
 }
