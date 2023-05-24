@@ -54,4 +54,4 @@ Actualmente este proyecto no está terminado y posiblemente presente anomalias e
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+The Spring framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
